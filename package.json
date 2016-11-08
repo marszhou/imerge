@@ -1,0 +1,25 @@
+{
+  "name": "imerge",
+  "version": "1.0.0",
+  "description": "command line tool to merge images",
+  "main": "index.js",
+  "bin": {
+    "imerge": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marszhou/imerge.git"
+  },
+  "author": "matt@cruelhyouth.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marszhou/imerge/issues"
+  },
+  "homepage": "https://github.com/marszhou/imerge#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
