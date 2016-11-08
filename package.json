@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/marszhou/imerge#readme",
   "dependencies": {
-    "commander": "^2.9.0"
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "progress": "^1.1.8"
   }
 }

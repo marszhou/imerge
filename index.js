@@ -1,5 +1,17 @@
 #!/usr/bin/env node
+'use strict';
 
-var ImageMerge = require('./src/image-merge')
+var program = require('commander');
 
-ImageMerge()
+program
+  .version('0.0.1')
+  .arguments('<file...>')
+  .option('-o, --output <filename>', 'output file path')
+  .option('-d, --direction <type>', 'indicate merge image direction, option values: [horizontal, vertical], default is [vertical]', /^(horizontal|vertical)$/i,'vertical')
+  .option('--dir <dir>', 'input directory')
+  .option('--background <color>', 'fill background with [0x000000]', '0x000000')
+  .action(function(file) {
+    console.log(file, program.output, program.direction)
+  })
+  .parse(process.argv);
+
