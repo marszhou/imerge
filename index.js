@@ -17,7 +17,9 @@ program
   .option('-o, --output <filename>', 'output file path')
   .option('-d, --direction <type>', 'indicate merge image direction, option values: [horizontal, vertical], default is [vertical]', /^(horizontal|vertical)$/i, 'vertical')
   .option('--dir <dir>', 'input directory')
-  .option('--background <color>', 'fill background with [0x000000]', '0x000000')
+  .option('--background <color>', 'fill background with [#FFFFFF]', '#FFFFFF')
+  .option('--maxWidth <maxWidth>', 'max width [0]', '0')
+  .option('--maxHeight <maxHeight>', 'max height [0]', '0')
   .action((_files) => {
     if (_files.length > 0) {
       _files.forEach(file => {
@@ -47,6 +49,10 @@ if (dir) {
   }
 }
 
+files = files.filter(file => {
+  return ['.BMP', '.JPG', '.JPEG', '.PNG', '.GIF'].indexOf(path.extname(file).toUpperCase()) > -1
+})
+
 if (files.length === 0) {
   errors.push(chalk.bold.red('No file input!'))
 }
@@ -58,7 +64,7 @@ if (_.isEmpty(output)) {
 }
 
 let background = program.background
-background = Number(background)
+// background = Number(background)
 
 let direction = program.direction
 
@@ -68,4 +74,9 @@ if (errors.length > 0) {
   process.exit(1)
 }
 
-ImageMerge(files, output, direction, background)
+let maxWidth = Number(program.maxWidth)
+maxWidth = maxWidth > 0 ? maxWidth : 0
+let maxHeight = Number(program.maxHeight)
+maxHeight = maxHeight > 0 ? maxHeight : 0
+
+ImageMerge(files, output, direction, background, maxWidth, maxHeight)
