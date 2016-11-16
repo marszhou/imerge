@@ -12,7 +12,7 @@ let files = []
 let errors = []
 
 program
-  .version('0.0.1')
+  .version('1.0.2')
   .arguments('[file...]')
   .option('-o, --output <filename>', 'output file path')
   .option('-d, --direction <type>', 'indicate merge image direction, option values: [horizontal, vertical], default is [vertical]', /^(horizontal|vertical)$/i, 'vertical')
