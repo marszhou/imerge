@@ -1,10 +1,10 @@
 {
-  "name": "imerge",
+  "name": "img-merger",
   "version": "1.0.0",
   "description": "command line tool to merge images",
   "main": "index.js",
   "bin": {
-    "imerge": "./index.js"
+    "img-merger": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
